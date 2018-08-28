@@ -9,32 +9,116 @@ using namespace std;
 
 template <typename T>
 class List {
-    private:
-        Node<T>* head;
-        Node<T>* tail;
-        int nodes;
+private:
+	Node<T>* head;
+	Node<T>* tail;
+	int nodes;
 
-        void print_reverse(Node<T>* head);
+	void print_reverse(Node<T>* head);
 
-    public:
-        List();
+public:
+	List();
 
-        int front();
-        int back();
-        void push_front(T value);
-        void push_back(T value);
-        void pop_front();
-        void pop_back();
-        T get(int position);
-        void concat(List<T> &other);
-        bool empty();
-        int size();
-        void print();
-        void print_reverse();
-        void clear();
-        Iterator<T> begin();
-        Iterator<T> end();
+	T front() {
 
-        ~List();
+	};
+	T back() {
+
+	};
+
+	//listo
+	void push_front(T value) {
+		head = new Node <T>(value, head);
+
+	};
+
+	//Listo
+	void push_back(T value) {
+		if (head == NULL) {
+			push_front(value)
+		}
+		else {
+			Node <T> temp = head;
+			while (temp != NULL) temp = temp.next;
+			temp.next = new Node <T>(value, NULL);
+		}
+
+	};
+
+	//Listo
+	void pop_front() {
+		if (head == NULL) throw runtime_error("No hay elemento");
+		else {
+			Node <T> temp = next;
+			delete head;
+			head->next = NULL;
+			head = temp;
+		}
+	};
+
+	//Listo
+	void pop_back() {
+		if (head == NULL) throw runtime_error("No hay elemento");
+		else {
+			Node <T> temp = head;
+			while (temp.next.next != NULL) temp = temp.next;
+			delete temp.next;
+			temp->next = NULL;
+		}
+
+	};
+
+	T get(int position) {
+		if (position > size()) throw runtime_error("No hay elemento");
+
+	};
+
+	void concat(List<T> &other) {
+	};
+
+	//Listo
+	bool empty() {
+		return (head == NULL);
+	};
+
+	//Listo
+	int size() {
+		int i = 0;
+		Node <T> temp = head;
+		if (head == NULL) throw runtime_error("No hay elemento");
+		else {
+			while (temp != NULL) {
+				i++;
+				temp = temp.next;
+			}
+		}
+	}
+
+	//Listo
+	void print() {
+		int i = 0;
+		Node <T> temp = head;
+		if (head == NULL) throw runtime_error("No hay elemento");
+		else {
+			while (temp != NULL) {
+				cout << temp << " ";
+				temp = temp.next;
+			}
+		}
+	};
+	void print_reverse() {
+
+	};
+	void clear() {
+	};
+
+	Iterator<T> begin();
+	Iterator<T> end();
+
+	~List();
 };
 #endif
+
+int main(int argc, char* argv[]) {
+
+};
