@@ -20,19 +20,18 @@ public:
 	List();
 
 	T front() {
-
+		return (*head);
 	};
+
 	T back() {
-
+		return (*tail);
 	};
 
-	//listo
 	void push_front(T value) {
 		head = new Node <T>(value, head);
 
 	};
 
-	//Listo
 	void push_back(T value) {
 		if (head == NULL) {
 			push_front(value)
@@ -45,7 +44,6 @@ public:
 
 	};
 
-	//Listo
 	void pop_front() {
 		if (head == NULL) throw runtime_error("No hay elemento");
 		else {
@@ -56,7 +54,6 @@ public:
 		}
 	};
 
-	//Listo
 	void pop_back() {
 		if (head == NULL) throw runtime_error("No hay elemento");
 		else {
@@ -68,20 +65,24 @@ public:
 
 	};
 
+
+
 	T get(int position) {
 		if (position > size()) throw runtime_error("No hay elemento");
+		else {
+		}
 
 	};
 
 	void concat(List<T> &other) {
+
 	};
 
-	//Listo
+
 	bool empty() {
 		return (head == NULL);
 	};
 
-	//Listo
 	int size() {
 		int i = 0;
 		Node <T> temp = head;
@@ -92,24 +93,37 @@ public:
 				temp = temp.next;
 			}
 		}
+		return (i);
 	}
 
-	//Listo
 	void print() {
 		int i = 0;
 		Node <T> temp = head;
 		if (head == NULL) throw runtime_error("No hay elemento");
 		else {
 			while (temp != NULL) {
-				cout << temp << " ";
+				cout << *temp << " ";
 				temp = temp.next;
 			}
 		}
 	};
 	void print_reverse() {
+		if (head == NULL) throw runtime_error("No hay elemento");
+		else {
 
+		}
 	};
+
 	void clear() {
+		Node <T> temp = head;
+		if (head == NULL) throw runtime_error("No hay elemento");
+		else {
+			while (temp != NULL) {
+				temp = temp.next;
+				delete head;
+				head = temp;				
+			}
+		}
 	};
 
 	Iterator<T> begin();
