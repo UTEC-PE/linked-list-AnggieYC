@@ -17,14 +17,14 @@ private:
 	void print_reverse(Node<T>* head);
 
 public:
-	List();
+	List(); // No se implementó
 
 	T front() {
-		return (*head);
+		return (*head); // No, deberáis controlar el caso vacía, y retornar head->data
 	};
 
 	T back() {
-		return (*tail);
+		return (*tail); // No, deberáis controlar el caso vacía, y retornar tail->data
 	};
 
 	void push_front(T value) {
@@ -57,7 +57,7 @@ public:
 	void pop_back() {
 		if (head == NULL) throw runtime_error("No hay elemento");
 		else {
-			Node <T> temp = head;
+			Node <T> temp = head; // head es un puntero, esto no se puede hacer
 			while (temp.next.next != NULL) temp = temp.next;
 			delete temp.next;
 			temp->next = NULL;
@@ -67,14 +67,14 @@ public:
 
 
 
-	T get(int position) {
+	T get(int position) { // No se implementó
 		if (position > size()) throw runtime_error("No hay elemento");
 		else {
 		}
 
 	};
 
-	void concat(List<T> &other) {
+	void concat(List<T> &other) { // No se implementó
 
 	};
 
@@ -85,7 +85,7 @@ public:
 
 	int size() {
 		int i = 0;
-		Node <T> temp = head;
+		Node <T> temp = head; // Head es un puntero, esto no se puede hacer
 		if (head == NULL) throw runtime_error("No hay elemento");
 		else {
 			while (temp != NULL) {
@@ -98,16 +98,16 @@ public:
 
 	void print() {
 		int i = 0;
-		Node <T> temp = head;
+		Node <T> temp = head; // Head es un puntero esto no se puede hacer
 		if (head == NULL) throw runtime_error("No hay elemento");
 		else {
 			while (temp != NULL) {
 				cout << *temp << " ";
-				temp = temp.next;
+				temp = temp.next; // next es un puntero, no puedes hacer esto
 			}
 		}
 	};
-	void print_reverse() {
+	void print_reverse() { // No se implementó
 		if (head == NULL) throw runtime_error("No hay elemento");
 		else {
 
@@ -129,10 +129,6 @@ public:
 	Iterator<T> begin();
 	Iterator<T> end();
 
-	~List();
+	~List(); // No se implementó
 };
 #endif
-
-int main(int argc, char* argv[]) {
-
-};
