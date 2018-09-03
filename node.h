@@ -7,14 +7,11 @@ struct Node {
     struct Node* next;
 
 	void killSelf() {
-		Node <T> temp = head;
-		if (head == NULL) throw runtime_error("No hay elemento");
-		else {
-			while (temp != NULL) {
-				temp = temp.next;
-				delete head;
-				head = temp;
-			}
+		while (head!=NULL) {
+			Node <T>* temp = head;
+			head = head->next;
+			head->next;
+			delete temp;			
 		}
 	};
 };
